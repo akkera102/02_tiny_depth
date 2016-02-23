@@ -34,6 +34,7 @@ http://www.geocities.co.jp/Hollywood-Kouen/9343/music.html
 
 
 ¡—š—ğ
+v1.01 2016/02/23    64bitƒpƒ\ƒRƒ“‚Åreset‚Å‚«‚È‚¢–â‘è‚ğC³
 v1.00 2015/12/25    ‚Æ‚è‚ ‚¦‚¸Š®¬
 
 
