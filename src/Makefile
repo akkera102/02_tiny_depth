@@ -1,8 +1,13 @@
 MAKEFLAGS	+=--no-print-directory
 
-BINPATH		= "C:/Program Files/Arduino/hardware/tools/avr/bin/"
-CONFFILE	= "C:/Program Files/Arduino\hardware/tools/avr/etc/avrdude.conf"
-COM			= COM4
+BINPATH			= "C:/Program Files/Arduino/hardware/tools/avr/bin/"
+CONFFILE		= "C:/Program Files/Arduino/hardware/tools/avr/etc/avrdude.conf"
+COM				= COM4
+ARDUBOY_MODEL	= ARDUBOY_10
+
+#ARDUBOY_MODEL	= ARDUBOY_DEVKIT
+
+#=============================================================================
 
 PREFIX		= $(BINPATH)avr-
 CPP			= $(PREFIX)g++
@@ -37,7 +42,7 @@ TARGET_HEX	= $(NAME).hex
 
 #=============================================================================
 
-DFLAGS	= -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x8036 -DUSB_MANUFACTURER="Unknown"
+DFLAGS	= -DF_CPU=16000000L -DARDUINO=10606 -DARDUINO_AVR_LEONARDO -DARDUINO_ARCH_AVR -DUSB_VID=0x2341 -DUSB_PID=0x8036 -DUSB_MANUFACTURER="Unknown" -D$(ARDUBOY_MODEL)
 
 GFLAGS	= -c -g -Os -Wall -Wextra -std=gnu++11 -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega32u4 $(DFLAGS) $(foreach incdir,$(INCDIR),-I$(incdir)) -x c++ -fpermissive
 
@@ -45,7 +50,7 @@ CFLAGS	= -c -g -Os -Wall -Wextra -std=gnu11 -ffunction-sections -fdata-sections 
 
 ASFLAGS	= -c -g -x assembler-with-cpp -mmcu=atmega32u4 $(DFLAGS) -DUSB_PRODUCT="Arduino Leonardo" $(foreach incdir,$(INCDIR),-I$(incdir))
 
-LDFLAGS	= -Wall -Wextra -Os -Wl,--gc-sections -Wl,-Map=$(MAPFILE) -mmcu=atmega32u4 -T avr5.xn
+LDFLAGS	= -Wall -Wextra -Os -Wl,--gc-sections -Wl,-Map=$(MAPFILE) -mmcu=atmega32u4 -T core/avr5.xn
 
 OFILES	= $(addprefix $(OBJDIR)/, $(addsuffix .o, $(notdir $(SFILES) $(CFILES))))
 
