@@ -94,11 +94,11 @@ void ShipFire(void)
 
 	if(trg & KEY_A)
 	{
-		fx = Ship.fx + FT(SHIP_CX);
+		fx = Ship.fx - FT(BULLET1_CX);
 	}
 	else
 	{
-		fx = Ship.fx - FT(BULLET1_CX);
+		fx = Ship.fx + FT(SHIP_CX);
 	}
 
 	BulletShipSet(fx, Ship.fy + (FrameGetCnt() & 0x40) ? 0 : FT(1));

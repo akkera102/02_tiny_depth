@@ -34,6 +34,7 @@ http://www.geocities.co.jp/Hollywood-Kouen/9343/music.html
 
 
 ■履歴
+v1.03 2016/07/12    AボタンとBボタンの間違いを修正
 v1.02 2016/05/17    Arduboy 1.0とosxスクリプトを追加
 v1.01 2016/02/23    64bitパソコンでresetできない問題を修正
 v1.00 2015/12/25    とりあえず完成
