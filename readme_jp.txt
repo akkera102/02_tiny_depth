@@ -33,6 +33,10 @@ python 2.7 + pil
 http://www.geocities.co.jp/Hollywood-Kouen/9343/music.html
 
 
+■ライセンス
+GPL v2
+
+
 ■履歴
 v1.03 2016/07/12    AボタンとBボタンの間違いを修正
 v1.02 2016/05/17    Arduboy 1.0とosxスクリプトを追加
