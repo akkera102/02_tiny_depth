@@ -19,7 +19,7 @@ void EepSeek(u16 adr)
 u8 EepRead8(void)
 {
 	eeprom_busy_wait();
-	return eeprom_read_byte(Eep.adr++);
+	return eeprom_read_byte(EEP_START_OFFSET + Eep.adr++);
 }
 //---------------------------------------------------------------------------
 u16 EepRead16(void)
@@ -27,9 +27,9 @@ u16 EepRead16(void)
 	u16 ret = 0;
 
 	eeprom_busy_wait();
-	ret |= eeprom_read_byte(Eep.adr++);
+	ret |= eeprom_read_byte(EEP_START_OFFSET + Eep.adr++);
 	eeprom_busy_wait();
-	ret |= eeprom_read_byte(Eep.adr++) << 8;
+	ret |= eeprom_read_byte(EEP_START_OFFSET + Eep.adr++) << 8;
 
 	return ret;
 }
@@ -37,13 +37,13 @@ u16 EepRead16(void)
 void EepWrite8(u8 data)
 {
 	eeprom_busy_wait();
-	eeprom_write_byte(Eep.adr++, data);
+	eeprom_write_byte(EEP_START_OFFSET + Eep.adr++, data);
 }
 //---------------------------------------------------------------------------
 void EepWrite16(u16 data)
 {
 	eeprom_busy_wait();
-	eeprom_write_byte(Eep.adr++, data & 0xff);
+	eeprom_write_byte(EEP_START_OFFSET + Eep.adr++, data & 0xff);
 	eeprom_busy_wait();
-	eeprom_write_byte(Eep.adr++, data >> 8);
+	eeprom_write_byte(EEP_START_OFFSET + Eep.adr++, data >> 8);
 }
